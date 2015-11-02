@@ -1,7 +1,7 @@
 (
     function(){
       "use strict";
-        var app = angular.module("APPNAME",
+        var app = angular.module("SampleApp",
             [
                 "app.constant",
                 "app.routes",

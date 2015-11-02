@@ -2,7 +2,7 @@
     function() {
         "use strict";
 
-        angular.module("paltamark")
+        angular.module("SampleApp")
             .controller(
                 "SampleController",
                 [
@@ -18,6 +18,7 @@
             $stateParams
         )
         {
+            var vm = this;
             vm.stuff = null;
 
             Common.Get
