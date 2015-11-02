@@ -1,0 +1,26 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "homepage": "https://github.com/vikkio88/laravel-api-boilerplate-jwt",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "vikkio88"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-busy": "~4.1.3",
+    "angular-breadcrumb": "~0.4.1",
+    "bootstrap": "~3.3.5"
+  }
+}

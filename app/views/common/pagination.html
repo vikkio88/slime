@@ -1,0 +1,5 @@
+<ul class="pagination">
+    <li data-ng-class="{disabled:vm.currentPage === 1}"><a data-ui-sref="sectionOne({ sectionId: vm.section.id, page : vm.currentPage - 1 })">&laquo;</a></li>
+    <li data-ng-repeat="i in vm.pages" data-ng-class="{active:vm.currentPage === i}"><a data-ui-sref="sectionOne({ sectionId: vm.section.id, page : i})">{{i}}</a></li>
+    <li><a data-ui-sref="sectionOne({ sectionId: vm.section.id, page : vm.currentPage + 1 })">&raquo;</a></li>
+</ul>

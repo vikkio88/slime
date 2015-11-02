@@ -1,0 +1,6 @@
+{
+    "require": {
+        "slim/slim": "^2.6",
+        "symfony/dom-crawler": "^2.7"
+    }
+}
