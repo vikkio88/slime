@@ -1,8 +1,5 @@
 <?php
 require_once("../vendor/autoload.php");
-require_once("requires.php"); //this will be modified adding a custom autoloader
-
-use \App\Lib\MaltaParkParser;
 
 $api = new \Slim\Slim();
 
