@@ -23,7 +23,6 @@ class Config
     public static function get($key, $directory = null)
     {
         $fileName = $directory . "config/";
-        var_dump($fileName);
         $exp = explode(".", $key);
         if (is_array($exp) && $exp[0] != null && $exp[1] != null && file_exists($fileName . $exp[0] . ".php")) {
             $conf = include($fileName . $exp[0] . ".php");
