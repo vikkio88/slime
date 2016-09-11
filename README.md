@@ -1,7 +1,8 @@
 # Slime
-[![Build Status](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/?branch=master)
+[![Build Status](https://travis-ci.org/vikkio88/slime.svg?branch=master)](https://travis-ci.org/vikkio88/slime)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/?branch=master)
 
 Laravel is as heavy as a pregnant morbidly obese hippo and full of things that you would never use but you like eloquent models?
+
 Well use **slime** for fuck sake.
 
 Basically a boilerplate to create quickly AngularJs+RestFulAPI webapps.
@@ -20,6 +21,7 @@ Install the backend service
 cd slime/api
 composer install
 ```
+
 Move and edit the configuration from the file
 ``` /api/.env.example```
 to the file
