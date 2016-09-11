@@ -3,7 +3,7 @@
 
 class A000UsersSeeder
 {
-    function run()
+    public function run()
     {
         $usersNumber = 10;
         $faker = Faker\Factory::create();

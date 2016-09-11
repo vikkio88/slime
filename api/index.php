@@ -23,7 +23,7 @@ $api->get('/ping', function ($request, $response, $args) {
     return Responder::getJsonResponse($jsonResp, $response);
 });
 
-$api->get('/users', function ($request, $response, $args) {
+$api->get('/users', function ($response) {
     return Responder::getJsonResponse(
         \App\Models\User::all(),
         $response

@@ -1,5 +1,5 @@
 # Slime
-[![Build Status](https://travis-ci.org/vikkio88/slime.svg?branch=master)](https://travis-ci.org/vikkio88/slime)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/angularjs-slim-boilerplate/?branch=master)
+[![Build Status](https://travis-ci.org/vikkio88/slime.svg?branch=master)](https://travis-ci.org/vikkio88/slime) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/slime/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/slime/?branch=master)
 
 Laravel is as heavy as a pregnant morbidly obese hippo and full of things that you would never use but you like eloquent models?
 
