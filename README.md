@@ -25,10 +25,7 @@ cd slime/api
 composer install
 ```
 
-Move and edit the configuration from the file
-```/api/.env.example```
-to the file
-```/api/.env```
+Move and edit the configuration from the file ```/api/.env.example``` to the file ```/api/.env```
 
 Run the migrations and seeders
 ```
