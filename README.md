@@ -42,7 +42,8 @@ cd slime
 bower install
 ```
 edit two configurations, one on the ```/index.html```
-```html
+
+```
 <base href="/BASEWEBDIR">
 ```
 the second is the file ```/app/modules/app.constants.js```
