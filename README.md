@@ -6,8 +6,11 @@ Laravel is as heavy as a pregnant morbidly obese hippo and full of things that y
 Well use **slime** for fuck sake.
 
 Basically a boilerplate to create quickly AngularJs+RestFulAPI webapps.
+
 ### Ingredients
-**Aqua, Eloquent (from Laravel), Slim (v3), Some AngulaJS**
+
+**Aqua, Eloquent (from Laravel), Slim (v3), Some AngulaJS bullshit**
+
 **Beware, it might contain nuts, my nuts**
 
 # HowTo
@@ -23,7 +26,7 @@ composer install
 ```
 
 Move and edit the configuration from the file
-``` /api/.env.example```
+```/api/.env.example```
 to the file
 ```/api/.env```
 
