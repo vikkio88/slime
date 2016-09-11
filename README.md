@@ -53,14 +53,14 @@ where you need to setup correctly the ```api/``` entrypoint url
 
 # ToDo
 ## BackEnd
-- [] Improve ```novice``` script (it was taken from another [project](https://github.com/kladd/slim-eloquent)) in order to make it able to be extendable
-- [] Add to ```novice``` the command to ```create migration``` and  ``create model``
-- [] Create a Controllers Layer
-- [] Introduce Middleware
-- [] Move to a separate project
+-  Improve ```novice``` script (it was taken from another [project](https://github.com/kladd/slim-eloquent)) in order to make it able to be extendable
+-  Add to ```novice``` the command to ```create migration``` and  ``create model``
+-  Create a Controllers Layer
+-  Introduce Middleware
+-  Move to a separate project
 
 ## FrontEnd
-- [] Change Css Framework to ```SemanticUI```
-- [] Introduce jasmine tests for AngularJS
-- [] Make the constant easier to configure
-- [] Move to a set of separated projects with more than one FE framework
+-  Change Css Framework to ```SemanticUI```
+-  Introduce jasmine tests for AngularJS
+-  Make the constant easier to configure
+-  Move to a set of separated projects with more than one FE framework
