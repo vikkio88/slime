@@ -1,5 +1,4 @@
-(
-    function() {
+(function () {
         "use strict";
         var app_routes = angular.module("app.routes",
             [
@@ -13,19 +12,16 @@
                 "$stateProvider",
                 "$urlRouterProvider",
                 "$locationProvider",
-                function(
-                    $stateProvider,
-                    $urlRouterProvider,
-                    $locationProvider
-                )
-                {
+                function ($stateProvider,
+                          $urlRouterProvider,
+                          $locationProvider) {
                     /*
-                    Unfortunately laravel router makes this unable to work
-                    $locationProvider.html5Mode({
-                        enabled: true,
-                        requireBase: false
-                    });
-                    */
+                     Unfortunately laravel router makes this unable to work
+                     $locationProvider.html5Mode({
+                     enabled: true,
+                     requireBase: false
+                     });
+                     */
 
                     //Hashbang
                     $locationProvider.hashPrefix("!");
@@ -36,7 +32,7 @@
                     //Sections
                         .state("ping",
                             {
-                                url:"/ping",
+                                url: "/ping",
                                 templateUrl: "app/views/sampleView.html",
                                 controller: "SampleController as vm",
                                 ncyBreadcrumb: {
@@ -47,5 +43,4 @@
                 }]
         );
 
-    }
-)();
+    })();

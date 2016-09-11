@@ -1,6 +1,5 @@
-(
-    function(){
-      "use strict";
+(function () {
+        "use strict";
         var app = angular.module("SampleApp",
             [
                 "app.constant",
@@ -12,11 +11,10 @@
 
         //UcFirst
         app.filter('capitalize',
-            function(){
-                return function(input){
-                    return (!!input) ? input.charAt(0).toUpperCase()+input.substr(1).toLowerCase() : "";
+            function () {
+                return function (input) {
+                    return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : "";
                 }
             }
         );
-    }
-)();
+    })();

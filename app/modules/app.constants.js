@@ -1,9 +1,7 @@
-(
-    function() {
+(function () {
         "use strict";
         var app_constants = angular.module("app.constant",
-            [
-            ]
+            []
         );
 
         app_constants.constant('config', {
@@ -11,5 +9,4 @@
             env: "DEBUG"
         });
 
-    }
-)();
+    })();

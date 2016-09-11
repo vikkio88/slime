@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vikkio88
- * Date: 01/11/2015
- * Time: 21:22
- */
 
 namespace App\Lib\Helpers;
 

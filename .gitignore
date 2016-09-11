@@ -1,7 +1,5 @@
 /.idea
-/vendor
-/node_modules
-Homestead.yaml
-Homestead.json
-.env
+api/vendor/
+api/.env
+bower_components/
 composer.lock

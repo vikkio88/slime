@@ -1,0 +1,14 @@
+services:
+  - mysql
+before_install:
+  - mysql -e 'create database test_db;'
+
+install:
+  - cd api/ && composer install --prefer-dist --no-interaction
+  - php novice migrate
+  - php novice seed
+
+language: php
+
+notifications:
+  email: false

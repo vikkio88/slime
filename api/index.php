@@ -1,17 +1,33 @@
 <?php
-require_once("../vendor/autoload.php");
 
-$api = new \Slim\Slim();
 
-$api->response->headers->set('Content-Type', 'application/json');
+require_once("vendor/autoload.php");
 
-$api->get('/ping', function () {
-    echo json_encode(
+use \App\Lib\Helpers\Responder;
+
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
+$c = new \Slim\Container($configuration);
+$api = new \Slim\App($c);
+
+$api->get('/ping', function ($request, $response, $args) {
+    $jsonResp = json_encode(
         [
             "status" => "service up",
-            "message" => "in a bottle",
-            "config" => \App\Lib\Helpers\Config::get("config1.stuff")
+            "message" => "in a bottle"
         ]
     );
+    return Responder::getJsonResponse($jsonResp, $response);
 });
+
+$api->get('/users', function ($request, $response, $args) {
+    return Responder::getJsonResponse(
+        \App\Models\User::all(),
+        $response
+    );
+});
+
 $api->run();
