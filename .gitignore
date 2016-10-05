@@ -2,4 +2,6 @@
 api/vendor/
 api/.env
 bower_components/
+node_modules/
 composer.lock
+

@@ -11,13 +11,15 @@
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~4.0",
+        "hot/phpunit-runner": "dev-master"
     },
     "autoload": {
         "files": [ "config/database.php" ],
         "psr-4": {
             "App\\Lib\\": "Lib/",
-            "App\\Models\\": "Models/"
+            "App\\Models\\": "Models/",
+            "App\\Actions\\": "Actions/"
         }
     },
     "autoload-dev": {

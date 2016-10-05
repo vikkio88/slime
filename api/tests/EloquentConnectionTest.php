@@ -1,10 +1,8 @@
 <?php
+use Illuminate\Database\Schema\Blueprint;
 
 
-/**
- * Class ExampleTest
- */
-class ExampleTest extends PHPUnit_Framework_TestCase
+class EloquentConnectionTest extends PHPUnit_Framework_TestCase
 {
 
 	/**
@@ -12,7 +10,7 @@ class ExampleTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testIlluminateConnection()
 	{
-		Illuminate\Database\Capsule\Manager::schema()->create('test', function ($table) {
+		Illuminate\Database\Capsule\Manager::schema()->create('test', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('email')->unique();
 			$table->timestamps();
