@@ -5,11 +5,11 @@ Laravel is as heavy as a pregnant morbidly obese hippo and full of things that y
 
 Well use **slime** for fuck sake.
 
-Basically a boilerplate to create quickly AngularJs+RestFulAPI webapps.
+Basically a boilerplate to create quickly RestFulAPI.
 
 ### Ingredients
 
-**Aqua, Eloquent (from Laravel), Slim (v3), Some AngulaJS bullshit**
+**Aqua, Eloquent (from Laravel), Slim (v3), Some other bullshit**
 
 **Beware, it might contain nuts, my nuts**
 
@@ -35,32 +35,10 @@ Run the tests
 ```
 phpunit
 ```
-# FrontEnd
-Install all the libs for the frontend
-```
-cd slime
-bower install
-```
-edit two configurations, one on the ```/index.html```
-
-```
-<base href="/BASEWEBDIR">
-```
-the second is the file ```/app/modules/app.constants.js```
-where you need to setup correctly the ```api/``` entrypoint url
-(To avoid problems CORS related it should be the same as the frontend so ```.../BASEWEBDIR/api/```)
-
 
 # ToDo
 ## BackEnd
 -  Improve ```novice``` script (it was taken from another [project](https://github.com/kladd/slim-eloquent)) in order to make it able to be extendable
 -  Add to ```novice``` the command to ```create migration``` and  ``create model``
--  Create a Controllers Layer
--  Introduce Middleware
--  Move to a separate project
+-  Finalize the Action Layer
 
-## FrontEnd
--  Change Css Framework to ```SemanticUI```
--  Introduce jasmine tests for AngularJS
--  Make the constant easier to configure
--  Move to a set of separated projects with more than one FE framework
