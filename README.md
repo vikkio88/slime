@@ -3,7 +3,7 @@
 
 Laravel is as heavy as a pregnant morbidly obese hippo and full of things that you would never use but you like eloquent models?
 
-Well use **slime** for fuck sake.
+Well use **slime-api** for fuck sake.
 
 Basically a boilerplate to create quickly RestFulAPI.
 
@@ -18,10 +18,14 @@ First clone the project
 ```
 git clone git@github.com:vikkio88/slime.git
 ```
-## BackEnd
-Install the backend service
+or install with composer
 ```
-cd slime
+composer create-project vikkio88/slime-api WHATEVER
+```
+
+## BackEnd
+Install the backend service (not needed if you used ```create-project``` command above)
+```
 composer install
 ```
 
@@ -40,5 +44,4 @@ phpunit
 ## BackEnd
 -  Improve ```novice``` script (it was taken from another [project](https://github.com/kladd/slim-eloquent)) in order to make it able to be extendable
 -  Add to ```novice``` the command to ```create migration``` and  ``create model``
--  Finalize the Action Layer
 

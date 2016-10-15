@@ -12,6 +12,6 @@ class ApiActionExceptionStub extends ApiAction
 
     protected function performAction()
     {
-        throw new SlimeException("Self-destruction triggered", 500);
+        throw new SlimeException();
     }
 }
