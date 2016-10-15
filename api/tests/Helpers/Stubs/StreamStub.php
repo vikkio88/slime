@@ -9,6 +9,8 @@ use Psr\Http\Message\StreamInterface;
 class StreamStub implements StreamInterface
 {
 
+    private $content;
+
     /**
      * Reads all data from the stream into a string, from the beginning to end.
      *
@@ -25,7 +27,7 @@ class StreamStub implements StreamInterface
      */
     public function __toString()
     {
-        return "";
+        return $this->content;
     }
 
     /**
@@ -142,6 +144,7 @@ class StreamStub implements StreamInterface
      */
     public function write($string)
     {
+        $this->content = $string;
         return 1;
     }
 

@@ -11,6 +11,7 @@ class ResponseStub implements ResponseInterface
 {
 
     private $headers = [];
+    private $body;
 
     /**
      * Retrieves the HTTP protocol version as a string.
@@ -194,7 +195,10 @@ class ResponseStub implements ResponseInterface
      */
     public function getBody()
     {
-        return new StreamStub();
+        if (empty($this->body)) {
+            $this->body = new StreamStub();
+        }
+        return $this->body;
     }
 
     /**
@@ -212,6 +216,7 @@ class ResponseStub implements ResponseInterface
      */
     public function withBody(StreamInterface $body)
     {
+        $this->body = $body;
         return $this;
     }
 

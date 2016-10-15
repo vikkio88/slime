@@ -3,7 +3,8 @@
 
 require_once("vendor/autoload.php");
 
-use \App\Lib\Helpers\Responder;
+use App\Actions\User\UserGetAll;
+use App\Actions\Ping\PingGet;
 
 $configuration = [
     'settings' => [
@@ -14,20 +15,23 @@ $c = new \Slim\Container($configuration);
 $api = new \Slim\App($c);
 
 $api->get('/ping', function ($request, $response, $args) {
-    $jsonResp = json_encode(
-        [
-            "status" => "service up",
-            "message" => "in a bottle"
-        ]
-    );
-    return Responder::getJsonResponse($jsonResp, $response);
+    return (
+    new PingGet(
+        $request,
+        $response,
+        $args
+    )
+    )->dispatch();
 });
 
-$api->get('/users', function ($response) {
-    return Responder::getJsonResponse(
-        \App\Models\User::all(),
-        $response
-    );
+$api->get('/users', function ($request, $response, $args) {
+    return (
+    new UserGetAll(
+        $request,
+        $response,
+        $args
+    )
+    )->dispatch();
 });
 
 $api->run();

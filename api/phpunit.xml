@@ -23,6 +23,7 @@
                 <directory suffix=".php">tests/</directory>
                 <directory suffix=".php">database/</directory>
                 <directory suffix=".php">vendor/</directory>
+                <directory suffix=".php">Console/</directory>
             </exclude>
         </whitelist>
     </filter>

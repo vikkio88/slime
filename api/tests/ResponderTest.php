@@ -33,4 +33,16 @@ class ResponderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("application/json", $response->getHeaders()['Content-Type']);
     }
 
+    /**
+     * @group Helpers
+     * @group Responder
+     * @group responderjsonbody
+     */
+    public function testResponderJsonReturnsExpectedBody()
+    {
+        $responseObject = new ResponseStub();
+        $response = Responder::getJsonResponse("bodyContent", $responseObject);
+        $this->assertNotEmpty($response->getBody());
+    }
+
 }

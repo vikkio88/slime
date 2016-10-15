@@ -4,6 +4,7 @@
 namespace App\Lib\Slime\RestAction;
 
 
+use App\Lib\Slime\Exceptions\SlimeException;
 use App\Lib\Slime\Interfaces\UseCase\IAction;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -28,9 +29,16 @@ abstract class Action implements IAction
     public function dispatch()
     {
         $this->init();
-        $this->performChecks();
-        $this->performAction();
-        $this->performCallBack();
+        try {
+            $this->performChecks();
+            $this->performAction();
+            $this->performCallBack();
+        } catch (SlimeException $slimeException) {
+            $this->manageSlimeException($slimeException);
+        } catch (\Exception $baseException) {
+            $this->manageBaseException($baseException);
+        }
+
         $this->formatResponse();
         return $this->response;
     }
@@ -40,5 +48,8 @@ abstract class Action implements IAction
     protected abstract function performAction();
     protected abstract function performCallBack();
     protected abstract function formatResponse();
+    protected abstract function manageSlimeException(SlimeException $slimeException);
+    protected abstract function manageBaseException(\Exception $baseException);
+
 
 }
