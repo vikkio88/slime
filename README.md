@@ -21,11 +21,11 @@ git clone git@github.com:vikkio88/slime.git
 ## BackEnd
 Install the backend service
 ```
-cd slime/api
+cd slime
 composer install
 ```
 
-Move and edit the configuration from the file ```/api/.env.example``` to the file ```/api/.env```
+Move and edit the configuration from the file ```.env.example``` to the file ```.env```
 
 Run the migrations and seeders
 ```
