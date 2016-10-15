@@ -23,6 +23,9 @@
         }
     },
     "autoload-dev": {
-        "psr-4": { "": "tests/" }
+        "psr-4": {
+            "": "tests/",
+            "Tests\\Helpers\\": "tests/Helpers"
+        }
     }
 }

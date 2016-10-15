@@ -4,10 +4,11 @@
 namespace App\Lib\Slime\RestAction;
 
 
+use App\Lib\Slime\Interfaces\UseCase\IAction;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-abstract class Action
+abstract class Action implements IAction
 {
     protected $args;
     protected $request;
@@ -24,12 +25,13 @@ abstract class Action
         $this->response = $response;
     }
 
-    public function run()
+    public function dispatch()
     {
         $this->init();
         $this->performChecks();
         $this->performAction();
         $this->performCallBack();
+        $this->formatResponse();
         return $this->response;
     }
 
@@ -37,5 +39,6 @@ abstract class Action
     protected abstract function performChecks();
     protected abstract function performAction();
     protected abstract function performCallBack();
+    protected abstract function formatResponse();
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Lib\Helpers;
+use Psr\Http\Message\ResponseInterface;
 
 
 /**
@@ -10,31 +11,31 @@ namespace App\Lib\Helpers;
 class Responder
 {
     /**
-     * @param $content
-     * @param $response
+     * @param $bodyContent
+     * @param ResponseInterface $response
      * @param array $headers
      * @return mixed
      */
-    public static function getJsonResponse($content, $response, $headers = [])
+    public static function getJsonResponse($bodyContent, ResponseInterface $response, $headers = [])
     {
         $headers['Content-Type'] = 'application/json';
         return self::getResponse(
-            $headers,
-            $content,
-            $response
+            $bodyContent,
+            $response,
+            $headers
         );
     }
 
     /**
+     * @param $bodyContent
+     * @param ResponseInterface $response
      * @param array $headers
-     * @param $content
-     * @param $response
-     * @return mixed
+     * @return ResponseInterface
      */
-    public static function getResponse($headers = [], $content, $response)
+    public static function getResponse($bodyContent, ResponseInterface $response, $headers = [])
     {
         $body = $response->getBody();
-        $body->write($content);
+        $body->write($bodyContent);
         $i = 0;
         foreach ($headers as $header => $value) {
             if ($i === 0) {
