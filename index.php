@@ -21,7 +21,7 @@ $api->get('/ping', function ($request, $response, $args) {
         $response,
         $args
     )
-    )->dispatch();
+    )->execute();
 });
 
 $api->get('/users', function ($request, $response, $args) {
@@ -31,7 +31,7 @@ $api->get('/users', function ($request, $response, $args) {
         $response,
         $args
     )
-    )->dispatch();
+    )->execute();
 });
 
 $api->run();

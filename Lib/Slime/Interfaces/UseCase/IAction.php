@@ -11,5 +11,5 @@ interface IAction
     /**
      * @return ResponseInterface
      */
-    public function dispatch();
+    public function execute();
 }

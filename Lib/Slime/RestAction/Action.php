@@ -26,7 +26,7 @@ abstract class Action implements IAction
         $this->response = $response;
     }
 
-    public function dispatch()
+    public function execute()
     {
         $this->init();
         try {

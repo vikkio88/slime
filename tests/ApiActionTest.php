@@ -21,7 +21,7 @@ class ApiActionTest extends PHPUnit_Framework_TestCase
             []
         );
 
-        $response = $apiAction->dispatch();
+        $response = $apiAction->execute();
         $this->assertInstanceOf(StreamInterface::class, $response->getBody());
         $body = $response->getBody()->__toString();
         $this->assertNotEmpty($body);
@@ -39,7 +39,7 @@ class ApiActionTest extends PHPUnit_Framework_TestCase
             new ResponseStub(),
             []
         );
-        $response = $apiAction->dispatch();
+        $response = $apiAction->execute();
         $this->assertInstanceOf(StreamInterface::class, $response->getBody());
         $body = $response->getBody()->__toString();
         $this->assertNotEmpty($body);

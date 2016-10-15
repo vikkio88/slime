@@ -30,7 +30,7 @@ class RestActionTest extends PHPUnit_Framework_TestCase
             new ResponseStub(),
             []
         );
-        $result = $action->dispatch();
+        $result = $action->execute();
         $this->assertInstanceOf(ResponseInterface::class, $result);
     }
 
