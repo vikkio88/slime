@@ -1,7 +1,7 @@
 {
-    "name": "slimeApi",
+    "name": "vikkio88/slime",
     "description": "a simple RestFul API framework based on Slim v3",
-    "keywords": ["slime-backend", "vikkio88"],
+    "keywords": ["slime-backend", "vikkio88", "rest", "eloquent", "microservice"],
     "license": "MIT",
     "type": "project",
     "require": {
