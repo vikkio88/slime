@@ -1,6 +1,8 @@
 /.idea
+api/coverage/
 api/vendor/
 api/.env
+api/clover.xml
 bower_components/
 node_modules/
 composer.lock

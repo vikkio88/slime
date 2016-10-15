@@ -12,7 +12,8 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "phpunit/phpunit": "~4.0",
-        "hot/phpunit-runner": "dev-master"
+        "hot/phpunit-runner": "dev-master",
+        "satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
         "files": [ "config/database.php" ],
