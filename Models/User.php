@@ -3,14 +3,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
+use App\Lib\Slime\Models\SlimeModel;
 
 
 /**
  * Class User
  * @package App\Models
  */
-class User extends Eloquent
+class User extends SlimeModel
 {
     /**
      * @var array

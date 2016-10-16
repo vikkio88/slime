@@ -15,6 +15,10 @@ abstract class Action implements IAction
     protected $request;
     protected $response;
 
+    protected $expectedQueryParameters = [
+
+    ];
+
     public function __construct(
         RequestInterface $request = null,
         ResponseInterface $response = null,
@@ -50,6 +54,5 @@ abstract class Action implements IAction
     protected abstract function formatResponse();
     protected abstract function manageSlimeException(SlimeException $slimeException);
     protected abstract function manageBaseException(\Exception $baseException);
-
 
 }

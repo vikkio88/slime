@@ -5,13 +5,18 @@ namespace App\Actions\User;
 
 
 use App\Actions\ApiAction;
+use App\Lib\Slime\RestAction\Traits\Pagination;
 use App\Models\User;
 
 class UserGetAll extends ApiAction
 {
+    use Pagination;
 
     protected function performAction()
     {
-        $this->payload = User::all();
+        $this->pagination = $this->getPaginationParams($this->request);
+        $this->payload = User::page(
+            $this->pagination
+        )->get();
     }
 }

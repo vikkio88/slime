@@ -13,6 +13,7 @@ abstract class ApiAction extends Action
     protected $code;
     protected $message;
     protected $payload;
+    protected $pagination = null;
 
     protected function init()
     {
@@ -33,13 +34,7 @@ abstract class ApiAction extends Action
 
     protected function formatResponse()
     {
-        $bodyContent = json_encode(
-            [
-                'code' => $this->code,
-                'message' => $this->message,
-                'payload' => $this->payload
-            ]
-        );
+        $bodyContent = $this->buildBody();
 
         $this->response = Responder::getJsonResponse(
             $bodyContent,
@@ -56,5 +51,19 @@ abstract class ApiAction extends Action
     {
         $this->code = $baseException->getCode();
         $this->message = $baseException->getMessage();
+    }
+
+    private function buildBody()
+    {
+        $body = [
+            'code' => $this->code,
+            'message' => $this->message,
+            'payload' => $this->payload
+        ];
+
+        if (!empty($this->pagination)) {
+            $body['pagination'] = $this->pagination;
+        }
+        return json_encode($body);
     }
 }
