@@ -11,7 +11,7 @@ class RestActionTest extends PHPUnit_Framework_TestCase
 
     /**
      * @group SlimeLibs
-     * @group Action
+     * @group RestAction
      */
     public function testUsingCorrectIFace()
     {
@@ -21,7 +21,7 @@ class RestActionTest extends PHPUnit_Framework_TestCase
 
     /**
      * @group SlimeLibs
-     * @group Action
+     * @group RestAction
      */
     public function testReturningCorrectIFace()
     {

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Actions;
+namespace App\Lib\Slime\RestAction;
 
 
 use App\Lib\Helpers\Responder;
 use App\Lib\Slime\Exceptions\SlimeException;
-use App\Lib\Slime\RestAction\Action;
+use App\Lib\Slime\RestAction\UseCase\Action;
 
 abstract class ApiAction extends Action
 {

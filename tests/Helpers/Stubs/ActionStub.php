@@ -5,7 +5,7 @@ namespace Tests\Helpers\Stubs;
 
 
 use App\Lib\Slime\Exceptions\SlimeException;
-use App\Lib\Slime\RestAction\Action;
+use App\Lib\Slime\RestAction\UseCase\Action;
 
 class ActionStub extends Action
 {

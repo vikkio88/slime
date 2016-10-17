@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Lib\Slime\RestAction;
+namespace App\Lib\Slime\RestAction\UseCase;
 
 
 use App\Lib\Slime\Exceptions\SlimeException;

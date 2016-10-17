@@ -4,7 +4,7 @@
 namespace App\Actions\Ping;
 
 
-use App\Actions\ApiAction;
+use App\Lib\Slime\RestAction\ApiAction;
 
 class PingGet extends ApiAction
 {

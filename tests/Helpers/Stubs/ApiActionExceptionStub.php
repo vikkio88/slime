@@ -4,8 +4,8 @@
 namespace Tests\Helpers\Stubs;
 
 
-use App\Actions\ApiAction;
 use App\Lib\Slime\Exceptions\SlimeException;
+use App\Lib\Slime\RestAction\ApiAction;
 
 class ApiActionExceptionStub extends ApiAction
 {
