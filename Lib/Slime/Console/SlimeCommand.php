@@ -1,15 +1,21 @@
 <?php
 
 
-namespace App\Lib\Slime\Interfaces\Console;
+namespace App\Lib\Slime\Console;
 
+
+use App\Lib\Slime\Interfaces\Console\ConsoleCommand;
 
 abstract class SlimeCommand implements ConsoleCommand
 {
+    protected $mandatoryArgs = [];
     protected $acceptedArgs = [];
+    protected $args = [];
 
     public function __construct(array $args)
     {
+        $this->args = $args;
+
         $this->parseArgs($args);
     }
 
@@ -20,5 +26,10 @@ abstract class SlimeCommand implements ConsoleCommand
 
     private function parseArgs(array $args)
     {
+        foreach ($this->acceptedArgs as $acceptedArg) {
+            if (array_key_exists($acceptedArg, $args)) {
+                $this->args[] = $args[$acceptedArg];
+            }
+        }
     }
 }

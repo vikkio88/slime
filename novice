@@ -1,15 +1,14 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-define("MIGRATIONS_PATH", __DIR__."/database/migrations");
-define("SEEDS_PATH", __DIR__."/database/seeds");
-
-/**
- * Script for creating, destroying, and seeding the app's database
- */
-class Novice {
+class Novice
+{
+    protected $commandPaths = [
+        'App\Lib\Slime\Console\Commands\\',
+        'App\Console\\'
+    ];
 
     function __construct($args)
     {
@@ -19,52 +18,42 @@ class Novice {
     function help()
     {
         echo "usage: php " . $this->args[0] . " <command> [<args>]\n";
+        exit(1);
     }
 
     function exec()
     {
         if (count($this->args) <= 1) {
             $this->help();
-        } else {
-            switch ($this->args[1]) {
-                case "migrate":
-                    $this->runMigrations();
-                    if (!isset($this->args[2]) || $this->args[2] != '--seed')
-                        break;
-                case "seed":
-                    $this->runSeed();
-                    break;
-                case "help":
-                case "--help":
-                    $this->help();
-                    break;
+        }
+
+        $args = array_slice($this->args, 2);
+        $commandClass = $this->getCommandClass($this->args[1]);
+
+        if (empty($commandClass)) {
+            echo "Command not found\n";
+            exit(1);
+        }
+
+        $command = $this->createCommandClass($commandClass, $args);
+        $command->run();
+    }
+
+    private function getCommandClass($commandName)
+    {
+        foreach ($this->commandPaths as $commandPath) {
+            $commandFullName = $commandPath . ucfirst($commandName) . 'Command';
+            if (class_exists($commandFullName)) {
+                return $commandFullName;
             }
         }
+
+        return false;
     }
 
-    function runMigrations()
+    private function createCommandClass($commandClass, $args)
     {
-        $files = glob(MIGRATIONS_PATH.'/*.php');
-
-        $this->run($files);
-    }
-
-    function runSeed()
-    {
-        $files = glob(SEEDS_PATH.'/*.php');
-        $this->run($files);
-    }
-
-    private function run($files)
-    {
-        foreach ($files as $file) {
-            require_once($file);
-
-            $class = basename($file, '.php');
-
-            $obj = new $class;
-            $obj->run();
-        }
+        return new $commandClass($args);
     }
 }
 

@@ -6,20 +6,20 @@ namespace App\Lib\Slime\Console\Commands;
 
 use App\Lib\Slime\Console\SlimeCommand;
 
-class MigrateCommand extends SlimeCommand
+class SeedCommand extends SlimeCommand
 {
-    const MIGRATIONS_PATH = 'database/migrations';
+    const SEED_PATH = 'database/seeds';
 
     /**
      * @return int
      */
     public function run()
     {
-        $files = glob(self::MIGRATIONS_PATH . '/*.php');
-        $this->runMigrations($files);
+        $files = glob(self::SEED_PATH . '/*.php');
+        $this->runSeeders($files);
     }
 
-    private function runMigrations($files)
+    private function runSeeders($files)
     {
         foreach ($files as $file) {
             require_once($file);
