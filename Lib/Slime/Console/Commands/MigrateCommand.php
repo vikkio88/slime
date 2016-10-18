@@ -4,9 +4,9 @@
 namespace App\Lib\Slime\Console\Commands;
 
 
-use App\Lib\Slime\Console\SlimeCommand;
+use App\Lib\Slime\Console\DatabaseHelperCommand;
 
-class MigrateCommand extends SlimeCommand
+class MigrateCommand extends DatabaseHelperCommand
 {
     const MIGRATIONS_PATH = 'database/migrations';
 
@@ -16,16 +16,9 @@ class MigrateCommand extends SlimeCommand
     public function run()
     {
         $files = glob(self::MIGRATIONS_PATH . '/*.php');
-        $this->runMigrations($files);
+        $this->runFiles($files);
+
+        return 0;
     }
 
-    private function runMigrations($files)
-    {
-        foreach ($files as $file) {
-            require_once($file);
-            $class = basename($file, '.php');
-            $obj = new $class;
-            $obj->run();
-        }
-    }
 }

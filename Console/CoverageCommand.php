@@ -10,17 +10,16 @@ use SimpleXMLElement;
 
 class CoverageCommand extends SlimeCommand
 {
-    protected $acceptedArgs = [
-
-    ];
-
     /**
      * @return int
      */
     public function run()
     {
-        $inputFile = isset($this->args[0]) ? $this->args[0] : "clover.xml";
-        $targetCoverage = (int)(isset($argv[1]) ? $argv[1] : 1);
+        $inputFile = $this->getArg(0);
+        $targetCoverage = $this->getArg(1);
+
+        $inputFile = !empty($inputFile) ? $inputFile : "clover.xml";
+        $targetCoverage = (int)(!empty($targetCoverage) ? $targetCoverage : 1);
         $percentage = min(100, max(0, $targetCoverage));
 
         if (!file_exists($inputFile)) {
@@ -45,9 +44,11 @@ class CoverageCommand extends SlimeCommand
 
         if ($coverage < $percentage) {
             echo 'Code coverage is ' . $coverage . '%, which is below the accepted ' . $percentage . '%' . PHP_EOL;
-            exit(1);
+            return 1;
         }
 
         echo 'Code coverage is ' . round($coverage, 2) . '% - OK!' . PHP_EOL;
+
+        return 0;
     }
 }

@@ -32,4 +32,9 @@ abstract class SlimeCommand implements ConsoleCommand
             }
         }
     }
+
+    protected function getArg($position)
+    {
+        return isset($this->args[$position]) ? $this->args[$position] : null;
+    }
 }

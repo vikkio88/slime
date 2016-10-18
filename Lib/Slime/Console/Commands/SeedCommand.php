@@ -4,9 +4,9 @@
 namespace App\Lib\Slime\Console\Commands;
 
 
-use App\Lib\Slime\Console\SlimeCommand;
+use App\Lib\Slime\Console\DatabaseHelperCommand;
 
-class SeedCommand extends SlimeCommand
+class SeedCommand extends DatabaseHelperCommand
 {
     const SEED_PATH = 'database/seeds';
 
@@ -16,16 +16,8 @@ class SeedCommand extends SlimeCommand
     public function run()
     {
         $files = glob(self::SEED_PATH . '/*.php');
-        $this->runSeeders($files);
-    }
+        $this->runFiles($files);
 
-    private function runSeeders($files)
-    {
-        foreach ($files as $file) {
-            require_once($file);
-            $class = basename($file, '.php');
-            $obj = new $class;
-            $obj->run();
-        }
+        return 0;
     }
 }

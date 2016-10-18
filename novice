@@ -1,48 +1,49 @@
 #!/usr/bin/env php
 <?php
 
+use App\Lib\Helpers\Config;
+use App\Lib\Helpers\TextFormatter;
+
 require __DIR__ . '/vendor/autoload.php';
 
 class Novice
 {
     protected $commandPaths = [
-        'App\Lib\Slime\Console\Commands\\',
-        'App\Console\\'
+
     ];
 
     function __construct($args)
     {
         $this->args = $args;
-    }
-
-    function help()
-    {
-        echo "usage: php " . $this->args[0] . " <command> [<args>]\n";
-        exit(1);
+        $this->commandPaths = Config::get('console.commandPaths');
     }
 
     function exec()
     {
         if (count($this->args) <= 1) {
-            $this->help();
+            $this->reportError("usage: php " . $this->args[0] . " <command> [<args>]");
         }
 
         $args = array_slice($this->args, 2);
         $commandClass = $this->getCommandClass($this->args[1]);
 
         if (empty($commandClass)) {
-            echo "Command not found\n";
-            exit(1);
+            $this->reportError("Command not found" . $commandClass);
         }
 
         $command = $this->createCommandClass($commandClass, $args);
-        $command->run();
+        try {
+            $return = $command->run();
+            exit($return);
+        } catch (Exception $exception) {
+            $this->reportError($exception->getMessage());
+        }
     }
 
     private function getCommandClass($commandName)
     {
         foreach ($this->commandPaths as $commandPath) {
-            $commandFullName = $commandPath . ucfirst($commandName) . 'Command';
+            $commandFullName = $this->generateClassName($commandPath, $commandName);
             if (class_exists($commandFullName)) {
                 return $commandFullName;
             }
@@ -54,6 +55,17 @@ class Novice
     private function createCommandClass($commandClass, $args)
     {
         return new $commandClass($args);
+    }
+
+    private function reportError($message)
+    {
+        echo $message . PHP_EOL;
+        exit(1);
+    }
+
+    private function generateClassName($commandPath, $commandName)
+    {
+        return $commandPath . TextFormatter::snakeToCamelCase($commandName) . 'Command';
     }
 }
 
