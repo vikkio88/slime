@@ -8,6 +8,7 @@ abstract class GeneratorHelperCommand extends SlimeCommand
 {
     public function run()
     {
+        //TODO ask confirmation if file exists
         $result = file_put_contents(
             $this->getFilePath() . $this->getFileName() . $this->getFileExtension()
             ,
