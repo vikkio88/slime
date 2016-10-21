@@ -6,6 +6,16 @@ namespace App\Lib\Slime\Console;
 
 abstract class DatabaseHelperCommand extends SlimeCommand
 {
+    protected $classesPath = null;
+    /**
+     * @return int
+     */
+    public function run()
+    {
+        $files = glob($this->classesPath . '/*.php');
+        $this->runFiles($files);
+        return 0;
+    }
 
     protected function runFiles($files)
     {
