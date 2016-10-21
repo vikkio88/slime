@@ -14,7 +14,9 @@ abstract class GeneratorHelperCommand extends SlimeCommand
     {
         $fullFileName = $this->getFullFileName();
 
-        if ($this->checkFile($fullFileName)) return 0;
+        if ($this->checkFile($fullFileName)) {
+            return 0;
+        }
 
         $result = file_put_contents(
             $fullFileName
