@@ -4,13 +4,20 @@
 namespace App\Lib\Slime\Console;
 
 
+use App\Lib\Slime\Console\Traits\StdInReader;
+
 abstract class GeneratorHelperCommand extends SlimeCommand
 {
+    use StdInReader;
+
     public function run()
     {
-        //TODO ask confirmation if file exists
+        $fullFileName = $this->getFullFileName();
+
+        if ($this->checkFile($fullFileName)) return 0;
+
         $result = file_put_contents(
-            $this->getFilePath() . $this->getFileName() . $this->getFileExtension()
+            $fullFileName
             ,
             $this->getHead() . $this->getStub()
         );
@@ -37,6 +44,24 @@ abstract class GeneratorHelperCommand extends SlimeCommand
     protected function getStub()
     {
         return "";
+    }
+
+    private function getFullFileName()
+    {
+        return $this->getFilePath() . $this->getFileName() . $this->getFileExtension();
+    }
+
+    private function checkFile($fullFileName)
+    {
+        if (file_exists($fullFileName)) {
+            echo "File already exists, want to override? [y/n]: ";
+            $resp = $this->readInput();
+            if ($resp !== 'y') {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
