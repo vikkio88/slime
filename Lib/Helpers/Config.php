@@ -16,14 +16,20 @@ class Config
      */
     public static function get($key, $directory = null)
     {
-        $fileName = $directory . "config/";
-        $exp = explode(".", $key);
-        if (is_array($exp) && $exp[0] != null && $exp[1] != null && file_exists($fileName . $exp[0] . ".php")) {
-            $conf = include($fileName . $exp[0] . ".php");
-            $val = array_key_exists($exp[1], $conf) ? $conf[$exp[1]] : null;
-            return $val;
+        $keys = explode(".", $key);
+
+        if (empty($keys) || count($keys) < 2) {
+            return null;
         }
-        return null;
+
+        $fileName = $directory . "config/" . $keys[0] . ".php";
+        if (!file_exists($fileName)) {
+            return null;
+        }
+
+        $conf = include($fileName);
+        $val = array_key_exists($keys[1], $conf) ? $conf[$keys[1]] : null;
+        return $val;
     }
 
 } 
