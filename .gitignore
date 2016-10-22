@@ -1,9 +1,7 @@
 /.idea
-api/coverage/
+coverage/
+clover.xml
 vendor/
 .env
-clover.xml
-bower_components/
-node_modules/
 composer.lock
 

@@ -19,6 +19,17 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * @group Helpers
      * @group Config
+     * @group configwillcasttonullifkeynotspecified
+     */
+    public function testConfigHelperWillCastToNullIfConfigKeyIsNotSpecified()
+    {
+        $val = Config::get('configSample');
+        $this->assertNull($val);
+    }
+
+    /**
+     * @group Helpers
+     * @group Config
      * @group configwillcasttonull
      */
     public function testConfigHelperWillCastToNullIfConfigKeyIsNotThere()
