@@ -56,7 +56,13 @@ return [
 ```
 If you need more, just add more (dont forget to add them to the composer json autoloader config)
 
-## Bundled
+## Usage
+To run a ```novice``` command you will need to be in the root of the project and type
+```
+$ php novice <command_name>
+```
+
+### Command Bundled
 Out of the box **Slime** provide you the following *novice* commands:
 ```
 create_config <name>
