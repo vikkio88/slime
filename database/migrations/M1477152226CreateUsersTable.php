@@ -1,19 +1,18 @@
 <?php
 
+
+use App\Lib\Slime\Interfaces\DatabaseHelpers\DbHelperInterface;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use \Illuminate\Database\Schema\Blueprint as Blueprint;
 
-class CreateUsersTable
+class M1477152226CreateUsersTable implements DbHelperInterface
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        Capsule::schema()->dropIfExists('users');
-        Capsule::schema()->create('users', function (Blueprint $table) {
+        $tableName = 'users';
+        Capsule::schema()->dropIfExists($tableName);
+        Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('surname');
@@ -22,4 +21,5 @@ class CreateUsersTable
             $table->timestamps();
         });
     }
+
 }

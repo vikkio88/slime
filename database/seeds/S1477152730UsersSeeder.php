@@ -1,12 +1,14 @@
 <?php
 
+use App\Lib\Slime\Interfaces\DatabaseHelpers\DbHelperInterface;
 
-class A000UsersSeeder
+class S1477152730UsersSeeder implements DbHelperInterface
 {
+
     public function run()
     {
-        $usersNumber = 10;
         $faker = Faker\Factory::create();
+        $usersNumber = 10;
         for ($i = 1; $i <= $usersNumber; $i++) {
             \App\Models\User::create(
                 [
@@ -18,4 +20,5 @@ class A000UsersSeeder
             );
         }
     }
+
 }
