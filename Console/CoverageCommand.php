@@ -17,23 +17,14 @@ class CoverageCommand extends SlimeCommand
      */
     public function run()
     {
-        $targetCoverage = $this->getArg(0);
-
+        $percentage = $this->getTargetCoverage();
         $inputFile = self::CLOVER_FILE;
-        $targetCoverage = (int)(!empty($targetCoverage) ? $targetCoverage : 1);
-        $percentage = min(100, max(0, $targetCoverage));
-
         if (!file_exists($inputFile)) {
             throw new InvalidArgumentException(
                 'Clover file not present, remember to run: phpunit --coverage-clover ' . $inputFile
             );
         }
-
-        if (!$percentage) {
-            throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
-        }
         $coverage = $this->getCoverage($inputFile);
-
 
         if ($coverage < $percentage) {
             echo 'Code coverage is ' . $coverage . '%, which is below the accepted ' . $percentage . '%' . PHP_EOL;
@@ -57,5 +48,16 @@ class CoverageCommand extends SlimeCommand
         }
 
         return round(($checkedElements / $totalElements) * 100, 2);
+    }
+
+    private function getTargetCoverage()
+    {
+        $target = $this->getArg(0);
+        $target = (int)(!empty($target) ? $target : 1);
+        $percentage = min(100, max(0, $target));
+        if (!$percentage) {
+            throw new InvalidArgumentException('An integer checked percentage must be given as second parameter [0-100]');
+        }
+        return $percentage;
     }
 }
