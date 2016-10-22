@@ -1,4 +1,4 @@
-# Slime
+# Slime (SLIM + Eloquent)
 [![Build Status](https://travis-ci.org/vikkio88/slime.svg?branch=master)](https://travis-ci.org/vikkio88/slime) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/slime/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/slime/?branch=master)
 
 Laravel is as heavy as a pregnant morbidly obese hippo and full of things that you would never use but you like eloquent models?
@@ -40,8 +40,37 @@ Run the tests
 phpunit
 ```
 
-# ToDo
-## BackEnd
--  Improve ```novice``` script (it was taken from another [project](https://github.com/kladd/slim-eloquent)) in order to make it able to be extendable
--  Add to ```novice``` the command to ```create migration``` and  ``create model``
+# Novice
+```novice``` is a php cli script taken from another [project](https://github.com/kladd/slim-eloquent).
+In this small project I extended it to make it easier for everyone to generate classes and even generate their own commands.
+## How to
+**Novice** will run a script which is in the right place, if it extends the right Interface.
+The file ```config/console``` contains the path where novice will search for the scripts
+```php
+return [
+    'commandPaths' => [
+        'App\Lib\Slime\Console\Commands\\',
+        'App\Console\\'
+    ]
+];
+```
+If you need more, just add more (dont forget to add them to the composer json autoloader config)
 
+## Bundled
+Out of the box **Slime** provide you the following *novice* commands:
+```
+create_config <name>
+create_migration <name>
+create_model <name>
+create_seeder <name>
+migrate
+seed
+```
+which code can be found on ```App\Lib\Slime\Console\Commands```
+ 
+ and 
+ ```
+ coverage [percentage]
+ echo [parameter1] [parameter2] ...
+ ```
+ which code can be found on ```App\Console```
