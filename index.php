@@ -5,14 +5,13 @@ require_once("vendor/autoload.php");
 
 use App\Actions\User\UserGetAll;
 use App\Actions\Ping\PingGet;
+use App\Lib\Helpers\Config;
+use Slim\App;
+use Slim\Container;
 
-$configuration = [
-    'settings' => [
-        'displayErrorDetails' => true,
-    ],
-];
-$c = new \Slim\Container($configuration);
-$api = new \Slim\App($c);
+$api = new App(
+    new Container(Config::get('app.boot'))
+);
 
 $api->get('/ping', function ($request, $response, $args) {
     return (
