@@ -50,10 +50,20 @@ abstract class GeneratorHelperCommand extends SlimeCommand
 
     private function getFullFileName()
     {
-        return $this->getFilePath() . $this->getFileName() . $this->getFileExtension();
+        $filePath = $this->getFilePath();
+        if (!$this->checkDir($filePath)) {
+            mkdir($filePath);
+        }
+
+        return $filePath . $this->getFileName() . $this->getFileExtension();
     }
 
-    private function checkFile($fullFileName)
+    protected function checkDir($dirName)
+    {
+        return is_dir($dirName);
+    }
+
+    protected function checkFile($fullFileName)
     {
         if (file_exists($fullFileName)) {
             echo "File already exists, want to override? [y/n]: ";
