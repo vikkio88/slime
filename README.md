@@ -69,6 +69,7 @@ create_config <name>
 create_migration <name>
 create_model <name>
 create_seeder <name>
+create_route <name>
 migrate
 seed
 ```
