@@ -10,7 +10,7 @@ class S1477152730UsersSeeder implements DbHelperInterface
         $faker = Faker\Factory::create();
         $usersNumber = 10;
         for ($i = 1; $i <= $usersNumber; $i++) {
-            \App\Models\User::create(
+            \App\Models\Users\User::create(
                 [
                     'name' => $faker->name,
                     'surname' => $faker->lastName,
