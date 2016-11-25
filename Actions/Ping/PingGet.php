@@ -10,6 +10,6 @@ class PingGet extends ApiAction
 {
     protected function performAction()
     {
-        $this->payload = "Pong1";
+        $this->payload = "Pong";
     }
 }
