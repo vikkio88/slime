@@ -6,4 +6,5 @@ return [
             'displayErrorDetails' => true,
         ]
     ],
+    'authHeader' => 'X-AUTH-TOKEN'
 ];
