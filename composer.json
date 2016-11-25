@@ -5,19 +5,15 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "slim/slim": "^3.0",
-        "illuminate/database": "*",
-        "vlucas/phpdotenv": "^2.3"
+        "vikkio88/slime-framework": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "phpunit/phpunit": "~4.0",
-        "hot/phpunit-runner": "dev-master"
+        "phpunit/phpunit": "~4.0"
     },
     "autoload": {
         "files": [ "config/database.php" ],
         "psr-4": {
-            "App\\Lib\\": "Lib/",
             "App\\Models\\": "Models/",
             "App\\Actions\\": "Actions/",
             "App\\Console\\": "Console/"
