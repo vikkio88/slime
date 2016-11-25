@@ -11,7 +11,7 @@ Basically a boilerplate to create quickly RestFulAPI.
 
 **Aqua, Eloquent (from Laravel), Slim (v3), Some other bullshit**
 
-**Beware, it might contain nuts, my nuts**
+**Beware, it might contain nuts**
 
 # HowTo
 First clone the project
@@ -23,8 +23,7 @@ or install with composer
 composer create-project vikkio88/slime-api WHATEVER
 ```
 
-## BackEnd
-Install the backend service (not needed if you used ```create-project``` command above)
+Install the dependencies (not needed if you used ```create-project``` command above)
 ```
 composer install
 ```
