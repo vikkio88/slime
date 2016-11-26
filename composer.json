@@ -5,7 +5,8 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "vikkio88/slime-framework": "dev-master"
+        "vikkio88/slime-framework": "dev-master",
+        "akrabat/rka-ip-address-middleware": "^0.4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
