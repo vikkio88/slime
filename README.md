@@ -1,5 +1,5 @@
 # Slime (SLIM + Eloquent)
-[![Build Status](https://travis-ci.org/vikkio88/slime.svg?branch=master)](https://travis-ci.org/vikkio88/slime) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/slime/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/slime/?branch=master)
+[![Build Status](https://travis-ci.org/vikkio88/slime.svg?branch=master)](https://travis-ci.org/vikkio88/slime) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vikkio88/slime/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vikkio88/slime/?branch=master) [![Code Climate](https://codeclimate.com/github/vikkio88/slime/badges/gpa.svg)](https://codeclimate.com/github/vikkio88/slime) [![Test Coverage](https://codeclimate.com/github/vikkio88/slime/badges/coverage.svg)](https://codeclimate.com/github/vikkio88/slime/coverage) 
 
 Laravel is as heavy as a pregnant morbidly obese hippo and full of things that you would never use but you like eloquent models?
 
