@@ -15,4 +15,11 @@ class User extends SlimeModel
         'email',
         'age',
     ];
+
+    protected $filters = [
+        'name' => [
+            'col' => 'name',
+            'op' => 'LIKE'
+        ]
+    ];
 }

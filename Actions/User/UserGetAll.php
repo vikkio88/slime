@@ -14,7 +14,9 @@ class UserGetAll extends ApiAction
     protected function performAction()
     {
         $this->pagination = $this->getPaginationParams($this->request);
-        $this->payload = User::page(
+        $this->payload = User::filter(
+            $this->getQueryParams()
+        )->page(
             $this->pagination
         )->get();
     }
