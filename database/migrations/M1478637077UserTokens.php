@@ -16,13 +16,11 @@ class M1478637077UserTokens implements DbHelperInterface
             $table->increments('id');
             $table->integer('user_id')->index()->unsigned();
             $table->string('user_ip')->nullable();
-            $table->string('device_token')->nullable();
-            $table->string('device_name')->nullable();
-            $table->string('token');
+            $table->string('login_token');
             $table->dateTime('last_usage');
             $table->timestamps();
 
-            $table->unique('token');
+            $table->unique('login_token');
         });
     }
 

@@ -7,5 +7,6 @@ return [
         ]
     ],
     'authHeader' => 'X-AUTH-TOKEN',
-    'key' => 'some_random_key'
+    'key' => 'some_random_key',
+    'tokenLife' => 6 // Token Life in hours
 ];

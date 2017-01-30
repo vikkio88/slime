@@ -10,27 +10,25 @@ class UserToken extends SlimeModel
     protected $fillable = [
         'user_id',
         'user_ip',
-        'device_token',
-        'device_name',
-        'token',
+        'login_token',
         'last_usage',
     ];
 
-    public static function getValidUserId($token, $ip = null)
+    public static function getByLoginToken($token, $ip = null)
     {
         $userToken = self::where(
             [
-                'token' => $token
+                'login_token' => $token
             ]
         )->first();
 
-        if (!empty($userToken)) {
-            $userToken->last_usage = Carbon::now();
-            $userToken->user_ip = $ip;
-            $userToken->save();
-            return $userToken->user_id;
+        if (empty($userToken)) {
+            return null;
         }
+        $userToken->last_usage = Carbon::now();
+        $userToken->user_ip = $ip;
+        $userToken->save();
+        return $userToken;
 
-        return null;
     }
 }
