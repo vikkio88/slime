@@ -16,9 +16,7 @@ class S1478638829UserTokens implements DbHelperInterface
                 [
                     'user_id' => $user->id,
                     'user_ip' => $faker->ipv4,
-                    'device_token' => $faker->password,
-                    'device_name' => $faker->colorName,
-                    'token' => str_repeat($user->id, 6),
+                    'login_token' => str_repeat($user->id, 6),
                     'last_usage' => \Carbon\Carbon::now(),
                 ]
             );
