@@ -66,11 +66,13 @@ Out of the box **Slime** provide you the following *novice* commands:
 ```
 create_config <name>
 create_migration <name>
-create_model <name>
+create_model <name> (namespaces availabile)
+create_action <name> (namespaces availabile)
 create_seeder <name>
 create_route <name>
 migrate
 seed
+build
 ```
 which code can be found on ```App\Lib\Slime\Console\Commands```
  
@@ -80,3 +82,35 @@ which code can be found on ```App\Lib\Slime\Console\Commands```
  echo [parameter1] [parameter2] ...
  ```
  which code can be found on ```App\Console```
+#### Build Command
+Running the command ```php novice build``` you will generate a lighter version of your api project (easier to deploy via ftp) in the ```dist/``` folder.
+```
+php novice build
+```
+Will generate the deployable version, if you want it to be execute with verbose output just add **-v**
+```
+php novice build clean
+```
+will clean the ```dist/``` folder.
+
+There is one configuration file that will allow you to customize your build ***config/build.php```
+You can add to this file the folders and the files you want the build script to copy over, and if you want to exclude more files on the vendor clean process.
+
+#### Namespaced Generator Commands
+```
+php novice create_model users\\player
+```
+Will generate a Model inside the right folder, creating the namespace structure (psr4 standard) and the namespace string on the file head.
+the command above will generate ```Models/Users/Player.php``` file and the class will be in the namespace ```App\Models\Users```.
+
+```
+php novice create_action users\\player_get_one
+```
+Will generate an Action inside the right folder, creating the namespace structure (psr4 standard) and the namespace string on the file head.
+the command above will generate ```Actions/Users/PlayerGetOne.php``` file and the class will be in the namespace ```App\Actions\Users```.
+
+All the Generator commands convert snake_case into UpperCamelCase, so if you type
+```
+php novice create_model users\\player_match
+```
+the command above will generate ```Models/Users/PlayerMatch.php``` file and the class will be in the namespace ```App\Models\Users```.
