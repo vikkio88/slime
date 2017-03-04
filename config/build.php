@@ -1,9 +1,7 @@
 <?php
 
 return [
-    'folders' => [
-        'scripts'
-    ],
+    'folders' => [],
     'files' => [],
     'vendorFolders' => [],
     'vendorFiles' => []
