@@ -93,7 +93,7 @@ php novice build clean
 ```
 will clean the ```dist/``` folder.
 
-There is one configuration file that will allow you to customize your build ***config/build.php```
+There is one configuration file that will allow you to customize your build ```config/build.php```
 You can add to this file the folders and the files you want the build script to copy over, and if you want to exclude more files on the vendor clean process.
 
 #### Namespaced Generator Commands
